@@ -63,10 +63,10 @@ public class AdministratorRepository {
 	) {
 		String sql = "SELECT\r\n" + 
 				"	*\r\n" + 
-				"FROM\r\n" + 
+				"FROM \r\n" + 
 				"	administrators\r\n" + 
 				"WHERE\r\n" + 
-				"	mail_address = :mailAddress,\r\n" + 
+				"	mail_address = :mailAddress AND\r\n" + 
 				"	password = :password\r\n" + 
 				";";
 		SqlParameterSource param = new MapSqlParameterSource()
