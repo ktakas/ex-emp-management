@@ -61,4 +61,21 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 		return "employee/detail";
 	}
+	
+	/**
+	 * 従業員の詳細を更新する.
+	 * 
+	 * @param form フォーム
+	 * @return 従業員一覧画面にリダイレクト
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		int employeeId = Integer.parseInt(form.getId());
+		int dependentsCount = Integer.parseInt(form.getDependentsCount());
+		
+		Employee employee = employeeService.showDetail(employeeId);
+		employee.setDependentsCount(dependentsCount);
+		employeeService.update(employee);
+		return "redirect:/employee/showList";
+	}
 }
