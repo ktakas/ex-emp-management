@@ -42,8 +42,9 @@ public class EmployeeRepository {
 	};
 	
 	/**
+	 * 従業員情報を入社日順（降順）で取得する
 	 * 
-	 * @return 従業員のリスト
+	 * @return 従業員のリスト（存在しない場合はサイズ0）
 	 */
 	public List<Employee> findAll() {
 		String sql = "SELECT\r\n" + 
@@ -57,6 +58,12 @@ public class EmployeeRepository {
 		return employees;
 	}
 	
+	/**
+	 * 主キーから従業員情報を取得する
+	 * 
+	 * @param id
+	 * @return 従業員（存在しない場合にはnull）
+	 */
 	public Employee load(Integer id) {
 		String sql = "SELECT\r\n" + 
 				"	*\r\n" + 
@@ -76,6 +83,11 @@ public class EmployeeRepository {
 		}
 	}
 	
+	/**
+	 * 従業員情報を変更する
+	 * 
+	 * @param employee
+	 */
 	public void update(Employee employee) {
 		String sql = "UPDATE\r\n" + 
 				"	employees\r\n" + 
