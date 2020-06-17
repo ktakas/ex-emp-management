@@ -1,13 +1,14 @@
 package jp.co.sample.form;
 
 /**
- * ログイン時に使用するフォーム
+ * ログイン時に使用するフォーム.
  * 
  * @author kohei.takasaki
- *
  */
 public class LoginForm {
+	/** メールアドレス */
 	private String mailAddress;
+	/** パスワード */
 	private String password;
 	
 	public String getMailAddress() {

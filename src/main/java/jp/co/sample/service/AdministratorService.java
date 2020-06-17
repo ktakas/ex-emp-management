@@ -8,10 +8,9 @@ import jp.co.sample.domain.Administrator;
 import jp.co.sample.repository.AdministratorRepository;
 
 /**
+ * 管理者情報を操作するサービス.
  * 
  * @author kohei.takasaki
- *
- * 管理者情報を操作するサービス
  */
 @Service
 @Transactional
@@ -21,20 +20,20 @@ public class AdministratorService {
 	private AdministratorRepository administratorRepository;
 	
 	/**
-	 * Administratorリポジトリのinsertメソッドを呼び出し管理者情報を挿入する
+	 * 管理者情報を挿入する.
 	 * 
-	 * @param administrator
+	 * @param administrator 管理者情報
 	 */
 	public void insert(Administrator administrator) {
 		administratorRepository.insert(administrator);
 	}
 	
 	/**
-	 * ログイン処理を行う
+	 * ログイン処理を行う.
 	 * 
-	 * @param mailAddress
-	 * @param password
-	 * @return 対応した管理者オブジェクト
+	 * @param mailAddress メールアドレス
+	 * @param password　パスワード
+	 * @return 対応した管理者情報
 	 */
 	public Administrator login(String mailAddress, String password) {
 		return administratorRepository.findByMailAddressAndPassword(mailAddress, password);

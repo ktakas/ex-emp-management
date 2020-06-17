@@ -13,10 +13,9 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
+ * employeesテーブルを操作するリポジトリ.
  * 
  * @author kohei.takasaki
- *
- * employeesテーブルを操作するリポジトリ
  */
 @Repository
 public class EmployeeRepository {
@@ -42,7 +41,7 @@ public class EmployeeRepository {
 	};
 	
 	/**
-	 * 従業員情報を入社日順（降順）で取得する
+	 * 従業員情報を入社日順（降順）で取得する.
 	 * 
 	 * @return 従業員のリスト（存在しない場合はサイズ0）
 	 */
@@ -59,7 +58,7 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 主キーから従業員情報を取得する
+	 * 主キーから従業員情報を取得する.
 	 * 
 	 * @param id
 	 * @return 従業員（存在しない場合にはnull）
@@ -84,9 +83,9 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 従業員情報を変更する
+	 * 従業員情報を変更する.
 	 * 
-	 * @param employee
+	 * @param employee 従業員
 	 */
 	public void update(Employee employee) {
 		String sql = "UPDATE\r\n" + 

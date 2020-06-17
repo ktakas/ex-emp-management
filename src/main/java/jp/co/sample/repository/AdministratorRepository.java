@@ -10,10 +10,9 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Administrator;
 
 /**
+ * administratorsテーブルを操作するリポジトリ.
  * 
  * @author kohei.takasaki
- *
- * administratorsテーブルを操作するリポジトリ
  */
 @Repository
 public class AdministratorRepository {
@@ -32,9 +31,9 @@ public class AdministratorRepository {
 	
 	
 	/**
-	 * 管理者情報を挿入する。
+	 * 管理者情報を挿入する.
 	 * 
-	 * @param administrator
+	 * @param administrator 管理者情報
 	 */
 	public void insert(Administrator administrator) {
 		String sql = "INSERT INTO\r\n" + 
@@ -51,11 +50,11 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * メールアドレスとパスワードから管理者情報を取得する。
+	 * メールアドレスとパスワードから管理者情報を取得する.
 	 * 
-	 * @param mailAddress
-	 * @param password
-	 * @return 存在する場合は Administrator しない場合null
+	 * @param mailAddress メールアドレス
+	 * @param password パスワード
+	 * @return 存在する場合は 管理者情報　 しない場合null
 	 */
 	public Administrator findByMailAddressAndPassword(
 			String mailAddress,

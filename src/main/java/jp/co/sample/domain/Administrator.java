@@ -1,10 +1,9 @@
 package jp.co.sample.domain;
 
 /**
+ * 管理者情報を表すドメイン.
  * 
  * @author kohei.takasaki
- *
- * 管理者情報を表すドメイン
  */
 public class Administrator {
 	/** ID */

@@ -15,10 +15,9 @@ import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
+ * 管理者情報を操作するサービス.
  * 
  * @author kohei.takasaki
- *
- * 管理者情報を操作するサービス
  */
 @Controller
 @RequestMapping("/")
@@ -31,7 +30,7 @@ public class AdministratorController {
 	private HttpSession session;
 	
 	/**
-	 * LoginFormをインスタンス化する
+	 * ログインフォームをインスタンス化する.
 	 * 
 	 * @return LoginForm
 	 */
@@ -41,7 +40,7 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * InsertAdministratorFormをインスタンス化する
+	 * 登録フォームをインスタンス化する.
 	 * 
 	 * @return InsertAdministratorForm
 	 */
@@ -51,9 +50,9 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * administrator/login.htmlにフォワードする
+	 * ログイン画面にフォワードする.
 	 * 
-	 * @return 管理者ログイン画面へのパス
+	 * @return ログイン画面
 	 */
 	@RequestMapping("/")
 	public String toLogin() {
@@ -61,9 +60,9 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * administrator/insert.htmlにフォワードする
+	 * 登録画面ににフォワードする.
 	 * 
-	 * @return 管理者情報を登録する処理へのパス
+	 * @return 管理者情報登録画面
 	 */
 	@RequestMapping("/toInsert")
 	public String toInsert() {
@@ -71,10 +70,10 @@ public class AdministratorController {
 	}
 	
 	/**
-	 * 引数のフォームからAdministratorのインスタンスへ情報をコピーし、サービスへ渡す
+	 * 管理者情報を登録する.
 	 * 
-	 * @param form
-	 * @return ログイン画面へのパス
+	 * @param form フォーム
+	 * @return ログイン画面
 	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
@@ -84,6 +83,13 @@ public class AdministratorController {
 		return "redirect:/";
 	}
 	
+	/**
+	 * フォームからメールアドレスとパスワードを受け取りサービスから管理者オブジェクトを取得する.
+	 * 
+	 * @param form フォーム
+	 * @param model リクエストスコープ
+	 * @return 成功時は従業員一覧、失敗時はログイン画面のパス
+	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		String mailAddress = form.getMailAddress();
@@ -92,10 +98,7 @@ public class AdministratorController {
 		
 		if (administrator == null) {
 			model.addAttribute("errorMsg", "メールアドレスまたはパスワードが不正です。");
-			
-			/* TODO: 管理者がnullの場合にどうするか */
-			return "administrator/login";
-					
+			return "administrator/login";		
 		} else {
 			model.addAttribute("administratorName", administrator.getName());
 			return "forward:/employee/showList";
